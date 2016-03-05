@@ -30,6 +30,10 @@
     "browserify": "^13.0.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "react-swipe": "^4.0.1",
+    "react-swipe-views": "0.0.10",
+    "react-swipeable": "^3.1.0",
+    "swipe-js-iso": "^2.0.2",
     "webpack": "^1.12.14"
   }
 }

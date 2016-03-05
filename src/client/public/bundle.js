@@ -55,11 +55,15 @@
 	
 	var _AwesomeComponent2 = _interopRequireDefault(_AwesomeComponent);
 	
+	var _AnotherComponent = __webpack_require__(/*! ./AnotherComponent.jsx */ 159);
+	
+	var _AnotherComponent2 = _interopRequireDefault(_AnotherComponent);
+	
 	var _react = __webpack_require__(/*! react */ 2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(/*! react-dom */ 159);
+	var _reactDom = __webpack_require__(/*! react-dom */ 160);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -72,15 +76,35 @@
 	var App = function (_React$Component) {
 		_inherits(App, _React$Component);
 	
-		function App() {
+		function App(props) {
 			_classCallCheck(this, App);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	
+			_this.state = { displayedComponent: 'awesomeComponent' };
+			_this.onClick = _this.onClick.bind(_this);
+			return _this;
 		}
 	
 		_createClass(App, [{
+			key: 'onClick',
+			value: function onClick() {
+				if (this.state.displayedComponent === 'awesomeComponent') {
+					this.setState({ displayedComponent: 'anotherComponent' });
+				} else {
+					this.setState({ displayedComponent: 'awesomeComponent' });
+				}
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var components = {
+					awesomeComponent: _react2.default.createElement(_AwesomeComponent2.default, null),
+					anotherComponent: _react2.default.createElement(_AnotherComponent2.default, null)
+				};
+	
+				var displayedComponent = components[this.state.displayedComponent];
+	
 				return _react2.default.createElement(
 					'div',
 					null,
@@ -89,7 +113,16 @@
 						null,
 						' Hello Frikin React!'
 					),
-					_react2.default.createElement(_AwesomeComponent2.default, null)
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'button',
+							{ onClick: this.onClick.bind(this) },
+							'Kittens?'
+						)
+					),
+					displayedComponent
 				);
 			}
 		}]);
@@ -129,43 +162,19 @@
 	var AwesomeComponent = function (_React$Component) {
 		_inherits(AwesomeComponent, _React$Component);
 	
-		function AwesomeComponent(props) {
+		function AwesomeComponent() {
 			_classCallCheck(this, AwesomeComponent);
 	
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AwesomeComponent).call(this, props));
-	
-			_this.state = { likesCount: 0 };
-			_this.onLike = _this.onLike.bind(_this);
-			return _this;
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(AwesomeComponent).apply(this, arguments));
 		}
 	
 		_createClass(AwesomeComponent, [{
-			key: 'onLike',
-			value: function onLike() {
-				var newLikesCount = this.state.likesCount + 1;
-				this.setState({ likesCount: newLikesCount });
-			}
-		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
 					null,
-					'Likes : ',
-					_react2.default.createElement(
-						'span',
-						null,
-						this.state.likesCount
-					),
-					_react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'button',
-							{ onClick: this.onLike },
-							'Like Me'
-						)
-					)
+					_react2.default.createElement('img', { src: 'http://cf.ltkcdn.net/cats/images/slide/89981-834x576-cute-red-kitten.jpg' })
 				);
 			}
 		}]);
@@ -20240,6 +20249,61 @@
 
 /***/ },
 /* 159 */
+/*!*********************************************!*\
+  !*** ./src/client/app/AnotherComponent.jsx ***!
+  \*********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by mursa on 3/5/16.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	
+	var AnotherComponent = function (_React$Component) {
+	  _inherits(AnotherComponent, _React$Component);
+	
+	  function AnotherComponent() {
+	    _classCallCheck(this, AnotherComponent);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AnotherComponent).apply(this, arguments));
+	  }
+	
+	  _createClass(AnotherComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement('img', { src: 'http://theheightsanimalhospital.com/clients/15389/images/playful-kitten-6683.jpg' })
+	      );
+	    }
+	  }]);
+	
+	  return AnotherComponent;
+	}(_react2.default.Component);
+	
+	exports.default = AnotherComponent;
+
+/***/ },
+/* 160 */
 /*!******************************!*\
   !*** ./~/react-dom/index.js ***!
   \******************************/
