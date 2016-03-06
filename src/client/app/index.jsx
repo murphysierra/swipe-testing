@@ -1,6 +1,8 @@
 import AwesomeComponent from './AwesomeComponent.jsx';
 import AnotherComponent from './AnotherComponent.jsx';
+import AThirdComponent from './AThirdComponent.jsx';
 import React from 'react';
+import ReactSwipe from 'react-swipe';
 import {render} from 'react-dom';
 
 class App extends React.Component {
@@ -13,26 +15,35 @@ class App extends React.Component {
 	onClick() {
 		if (this.state.displayedComponent === 'awesomeComponent') {
 			this.setState({displayedComponent: 'anotherComponent'});
-		}
-		else { this.setState({displayedComponent: 'awesomeComponent'});}
+		} else if (this.state.displayedComponent === 'anotherComponent') {
+      this.setState({displayedComponent: 'aThirdComponent'});
+    } else {
+      this.setState({displayedComponent: 'awesomeComponent'});
+    }
 	}
 
 	render () {
-		const components = {
-			awesomeComponent: <AwesomeComponent />,
-			anotherComponent: <AnotherComponent />
-		};
+    const components = {
+      awesomeComponent: <AwesomeComponent />,
+      anotherComponent: <AnotherComponent />,
+      aThirdComponent: <AThirdComponent />
+    };
 
-		const displayedComponent = components[this.state.displayedComponent];
+    const displayedKitten = components[this.state.displayedComponent];
 
-			return (
-			      <div>
-				      <p> Hello Frikin React!</p>
-							<div><button onClick={this.onClick.bind(this)}>Kittens?</button></div>
-							{displayedComponent}
-						</div>
-			);
-		}
+    return (
+          <div>
+            <p> Hello Frikin React!</p>
+            <div><button onClick={this.onClick.bind(this)}>Kittens?</button></div>
+            {displayedKitten}
+            <ReactSwipe continuous={false} key={this.state.displayedComponent}>
+                <div>{displayedKitten}</div>
+                <div><AnotherComponent /></div>
+                <div><AThirdComponent /></div>
+            </ReactSwipe>
+          </div>
+    );
+  }
 }
 
 render(<App/>, document.getElementById('app'));

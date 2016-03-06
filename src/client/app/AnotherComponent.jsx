@@ -7,7 +7,7 @@ class AnotherComponent extends React.Component {
   render() {
     return (
       <div>
-        <img src={'http://theheightsanimalhospital.com/clients/15389/images/playful-kitten-6683.jpg'} />
+        <img src={'http://i.telegraph.co.uk/multimedia/archive/02830/cat_2830677b.jpg'} />
       </div>
    );
   }
